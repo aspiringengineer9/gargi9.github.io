@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gargi Kulkarni — ML & LLM Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+:root {
+  --ink: #0e0e0e;
+  --ink-mid: #4a4a4a;
+  --ink-muted: #8a8a8a;
+  --rule: #d8d8d8;
+  --rule-light: #eeeeee;
+  --paper: #fafaf8;
+  --paper-warm: #f4f2ed;
+}
+body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.65; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 56px; height: 60px; background: rgba(250,250,248,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+.nav-logo { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 400; letter-spacing: 0.06em; color: var(--ink-mid); }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.09em; color: var(--ink-muted); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--ink); }
+.hero { padding: 140px 56px 96px; max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: end; border-bottom: 1px solid var(--rule); }
+.hero-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 28px; }
+.hero-name { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; font-size: clamp(56px, 7vw, 82px); line-height: 1.0; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 32px; }
+.hero-name em { font-style: italic; color: var(--ink-mid); }
+.hero-bio { font-size: 16px; color: var(--ink-mid); line-height: 1.75; max-width: 480px; margin-bottom: 40px; font-weight: 300; }
+.hero-cta { display: flex; align-items: center; gap: 28px; }
+.btn-main { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; padding: 11px 24px; background: var(--ink); color: var(--paper); border: none; text-decoration: none; display: inline-block; transition: background 0.15s; }
+.btn-main:hover { background: #333; }
+.btn-text { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--ink-muted); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; transition: color 0.15s, border-color 0.15s; }
+.btn-text:hover { color: var(--ink); border-color: var(--ink); }
+.hero-stats { display: flex; flex-direction: column; border: 1px solid var(--rule); }
+.stat-row { padding: 20px 24px; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.stat-row:last-child { border-bottom: none; }
+.stat-figure { font-family: 'EB Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1; flex-shrink: 0; }
+.stat-desc { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.07em; color: var(--ink-muted); text-align: right; line-height: 1.5; }
+section { padding: 96px 56px; max-width: 1060px; margin: 0 auto; border-bottom: 1px solid var(--rule); }
+.section-eyebrow { display: flex; align-items: center; gap: 20px; margin-bottom: 60px; }
+.section-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-muted); letter-spacing: 0.1em; }
+.section-title { font-family: 'EB Garamond', serif; font-size: 36px; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); }
+.section-rule { flex: 1; height: 1px; background: var(--rule); }
+.projects-list { display: flex; flex-direction: column; }
+.project-item { display: grid; grid-template-columns: 190px 1fr; border: 1px solid var(--rule); margin-bottom: -1px; transition: background 0.15s; }
+.project-item:hover { background: var(--paper-warm); }
+.project-meta { padding: 36px 28px 36px 32px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; gap: 12px; }
+.project-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-muted); }
+.project-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--ink-muted); line-height: 1.7; }
+.project-metrics { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+.metric-num { font-family: 'EB Garamond', serif; font-size: 22px; color: var(--ink); line-height: 1; }
+.metric-lbl { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.08em; color: var(--ink-muted); }
+.project-body { padding: 36px 40px; }
+.project-title { font-family: 'EB Garamond', serif; font-size: 26px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 14px; line-height: 1.2; }
+.project-desc { font-size: 14px; color: var(--ink-mid); line-height: 1.8; margin-bottom: 28px; }
+.project-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+.stack-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; padding: 4px 10px; border: 1px solid var(--rule); color: var(--ink-mid); }
+.project-link { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--ink-muted); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; display: inline-block; transition: color 0.15s, border-color 0.15s; }
+.project-link:hover { color: var(--ink); border-color: var(--ink); }
+.research-block { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.research-status { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--ink-muted); margin-bottom: 20px; }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: #16a34a; }
+.research-title { font-family: 'EB Garamond', serif; font-size: 28px; font-weight: 400; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 18px; }
+.research-body { font-size: 14px; color: var(--ink-mid); line-height: 1.85; }
+.research-details { display: flex; flex-direction: column; border: 1px solid var(--rule); }
+.rd-row { padding: 18px 24px; border-bottom: 1px solid var(--rule); }
+.rd-row:last-child { border-bottom: none; }
+.rd-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 5px; }
+.rd-value { font-size: 13px; color: var(--ink); line-height: 1.6; }
+.exp-list { display: flex; flex-direction: column; }
+.exp-item { display: grid; grid-template-columns: 190px 1fr; border-top: 1px solid var(--rule); padding: 40px 0; gap: 0; }
+.exp-item:last-child { border-bottom: 1px solid var(--rule); }
+.exp-period { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-muted); line-height: 1.6; }
+.exp-org { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-muted); letter-spacing: 0.05em; margin-top: 8px; line-height: 1.5; }
+.exp-role { font-family: 'EB Garamond', serif; font-size: 24px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 16px; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.exp-bullets li { font-size: 14px; color: var(--ink-mid); line-height: 1.7; padding-left: 18px; position: relative; }
+.exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--rule); }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--rule); }
+.skill-col { padding: 32px; border-right: 1px solid var(--rule); }
+.skill-col:last-child { border-right: none; }
+.skill-col-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 20px; }
+.skill-list { display: flex; flex-direction: column; gap: 9px; }
+.skill-item { font-size: 14px; color: var(--ink-mid); }
+.contact-section { padding: 96px 56px; max-width: 1060px; margin: 0 auto; }
+.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.contact-heading { font-family: 'EB Garamond', serif; font-size: clamp(40px, 5vw, 60px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.05; }
+.contact-heading em { font-style: italic; color: var(--ink-mid); }
+.contact-sub { font-size: 14px; color: var(--ink-mid); line-height: 1.8; margin-bottom: 32px; }
+.contact-links { display: flex; flex-direction: column; border: 1px solid var(--rule); }
+.contact-link { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid var(--rule); text-decoration: none; transition: background 0.15s; gap: 12px; }
+.contact-link:last-child { border-bottom: none; }
+.contact-link:hover { background: var(--paper-warm); }
+.contact-link-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); min-width: 60px; }
+.contact-link-val { font-size: 13px; color: var(--ink-mid); flex: 1; }
+.contact-arrow { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--rule); }
+footer { border-top: 1px solid var(--rule); padding: 24px 56px; display: flex; justify-content: space-between; align-items: center; }
+footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-muted); letter-spacing: 0.06em; }
+@media (max-width: 800px) {
+  nav { padding: 0 24px; }
+  .hero, section, .contact-section { padding-left: 24px; padding-right: 24px; }
+  .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 100px; }
+  .project-item { grid-template-columns: 1fr; }
+  .project-meta { border-right: none; border-bottom: 1px solid var(--rule); }
+  .research-block { grid-template-columns: 1fr; gap: 40px; }
+  .exp-item { grid-template-columns: 1fr; gap: 16px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-col { border-right: none; border-bottom: 1px solid var(--rule); }
+  .skill-col:last-child { border-bottom: none; }
+  .contact-row { grid-template-columns: 1fr; gap: 40px; }
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">gargi kulkarni</div>
+  <ul class="nav-links">
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#research">research</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-label">ML · LLM · Systems — San Jose, CA</p>
+    <h1 class="hero-name">Gargi<br><em>Kulkarni</em></h1>
+    <p class="hero-bio">I build production-grade AI systems — from LLM inference optimization and multi-agent orchestration to deep learning for optical network failure detection. Currently an MS Computer Science student at SJSU and graduate researcher at the Interconnect Lab.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-main">View Work</a>
+      <a href="https://github.com/aspiringengineer9" target="_blank" class="btn-text">GitHub ↗</a>
+      <a href="mailto:gargi.kulkarni@sjsu.edu" class="btn-text">Email ↗</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-row">
+        <div class="stat-figure">2.5×</div>
+        <div class="stat-desc">vLLM throughput at 16 concurrent users</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-figure">3×</div>
+        <div class="stat-desc">memory reduction via INT4 quantization</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-figure">92%</div>
+        <div class="stat-desc">LSTM accuracy on soft failure detection</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-figure">87%</div>
+        <div class="stat-desc">conflict-free resolution in multi-agent planning</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="projects">
+  <div class="section-eyebrow">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="projects-list">
+
+    <div class="project-item">
+      <div class="project-meta">
+        <span class="project-num">P.01</span>
+        <span class="project-type">LLM Inference<br>Quantization<br>Serving</span>
+        <div class="project-metrics">
+          <div><div class="metric-num">2.5×</div><div class="metric-lbl">throughput</div></div>
+          <div><div class="metric-num">3×</div><div class="metric-lbl">memory reduction</div></div>
+          <div><div class="metric-num">1.7×</div><div class="metric-lbl">decode speedup</div></div>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">End-to-End LLM Quantization & Serving Pipeline — Qwen3-4B</h3>
+        <p class="project-desc">
+          A full inference optimization pipeline taking Qwen3-4B from a standard HuggingFace model to a production-ready, quantized, high-throughput serving setup. The pipeline applies both GPTQ and AWQ quantization to INT4 precision, then serves the model via vLLM with speculative decoding using a Qwen3-0.6B draft model as the predictor.
+          <br><br>
+          The speculative decoding setup achieves a 1.7× decoding speedup by generating candidate token sequences with the smaller draft model, then verifying them in parallel with the target model — recovering most of the compute cost. End-to-end benchmarks cover p99 latency (under 560ms at 16 concurrent users), throughput scaling, and quality degradation — with a direct AWQ vs. GPTQ comparison across all three axes.
+        </p>
+        <div class="project-stack">
+          <span class="stack-tag">vLLM</span>
+          <span class="stack-tag">GPTQ</span>
+          <span class="stack-tag">AWQ</span>
+          <span class="stack-tag">Speculative Decoding</span>
+          <span class="stack-tag">KV Caching</span>
+          <span class="stack-tag">Qwen3-4B</span>
+          <span class="stack-tag">GPU Profiling</span>
+          <span class="stack-tag">Python</span>
+        </div>
+        <a href="https://colab.research.google.com/drive/17Bj-5Gl8fn0KWgWT_6xgo_uzMD_2cBCP" target="_blank" class="project-link">Open Colab Notebook ↗</a>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-meta">
+        <span class="project-num">P.02</span>
+        <span class="project-type">Multi-Agent LLM<br>LangGraph<br>ReAct</span>
+        <div class="project-metrics">
+          <div><div class="metric-num">87%</div><div class="metric-lbl">conflict resolution</div></div>
+          <div><div class="metric-num">+25%</div><div class="metric-lbl">search success rate</div></div>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">Multi-Agent LLM System for Collaborative Itinerary Planning</h3>
+        <p class="project-desc">
+          A LangGraph-based multi-agent system where 3–5 specialized agents autonomously negotiate conflicting travel constraints — budget vs. preferred airlines, layover tolerances, hotel tier — and produce conflict-free itineraries without human intervention in 87% of test cases.
+          <br><br>
+          The core is a ReAct-based orchestrator agent with live integrations to flight and hotel search APIs. Autonomous error handling — retry logic, API fallbacks, and constraint relaxation — improved search success rate by 25% and eliminated the need for manual intervention when APIs return partial or inconsistent results. A Streamlit frontend with human-in-the-loop checkpoints allows users to inspect and override agent decisions at any point in the planning process.
+        </p>
+        <div class="project-stack">
+          <span class="stack-tag">LangGraph</span>
+          <span class="stack-tag">LangChain</span>
+          <span class="stack-tag">ReAct</span>
+          <span class="stack-tag">Streamlit</span>
+          <span class="stack-tag">REST APIs</span>
+          <span class="stack-tag">Python</span>
+        </div>
+        <a href="https://github.com/aspiringengineer9/multi-agent-travel-planner" target="_blank" class="project-link">View on GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-meta">
+        <span class="project-num">P.03</span>
+        <span class="project-type">Reinforcement<br>Learning<br>Policy Optimization</span>
+        <div class="project-metrics">
+          <div><div class="metric-num">RL</div><div class="metric-lbl">policy algorithms</div></div>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">Reinforcement Learning — CS272 Final Project</h3>
+        <p class="project-desc">
+          A research project exploring core reinforcement learning methods and policy optimization in structured environments. The work covers algorithm implementation from scratch, agent evaluation under varying reward structures, and empirical analysis of learning dynamics — including convergence behavior and sensitivity to hyperparameter choices across different environment configurations.
+          <br><br>
+          Collaborative research with an emphasis on experimental rigor: reproducible training setups, ablation studies across key variables, and systematic comparison of RL approaches to understand where and why each method performs differently.
+        </p>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">PyTorch</span>
+          <span class="stack-tag">RL Algorithms</span>
+          <span class="stack-tag">NumPy</span>
+          <span class="stack-tag">Matplotlib</span>
+        </div>
+        <a href="https://github.com/Hemalakshumi/CS272_Final_project" target="_blank" class="project-link">View on GitHub ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="research">
+  <div class="section-eyebrow">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Research</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="research-block">
+    <div>
+      <div class="research-status"><span class="status-dot"></span>Active · SJSU Interconnect Lab</div>
+      <h3 class="research-title">ASE Soft Failure Detection in Optical Networks via LSTM</h3>
+      <p class="research-body">
+        Optical network soft failures — gradual OSNR degradations of 1–3 dB — are difficult to catch before they cause service degradation. Standard monitoring thresholds miss them because the signal still looks acceptable. The goal is to detect failure onset early, not just the final degraded state.
+        <br><br>
+        I use GNPy to simulate the failure: one amplifier out of 16 is selected at random and degraded over 25 rounds, with Noise Figure drifting via a Weibull distribution and Gain via a Gaussian — both progressively shifted rightward across rounds to mimic realistic worsening. Healthy amplifiers receive baseline noise additions so the problem doesn't become trivially easy by OSNR magnitude alone.
+        <br><br>
+        An LSTM trained on this temporal sequence learns to detect degraded paths and localize the failing amplifier via path intersection analysis across monitoring paths. Current results show 92% classification accuracy at ~5,000 simulation rounds. Ongoing work focuses on improving precision (currently 53%) and recall (74%), and verifying that the model is genuinely learning temporal degradation trends rather than static signal thresholds.
+      </p>
+    </div>
+    <div class="research-details">
+      <div class="rd-row">
+        <div class="rd-label">Institution</div>
+        <div class="rd-value">Interconnect Lab, San Jose State University — Aug 2025 – Present</div>
+      </div>
+      <div class="rd-row">
+        <div class="rd-label">Current metrics</div>
+        <div class="rd-value">92% classification accuracy · 53% precision · 74% recall on degraded path detection</div>
+      </div>
+      <div class="rd-row">
+        <div class="rd-label">Simulation setup</div>
+        <div class="rd-value">16 amplifiers · 1 randomly failing per run · 25-round degradation window · ~120 data points per scenario · 3,000 total simulation rounds</div>
+      </div>
+      <div class="rd-row">
+        <div class="rd-label">Failure modeling</div>
+        <div class="rd-value">Weibull distribution for Noise Figure drift · Gaussian for Gain drift · Progressive rightward shift across rounds for realistic degradation onset</div>
+      </div>
+      <div class="rd-row">
+        <div class="rd-label">Localization</div>
+        <div class="rd-value">Path intersection analysis across optical monitoring paths to identify the specific failing amplifier</div>
+      </div>
+      <div class="rd-row">
+        <div class="rd-label">Stack</div>
+        <div class="rd-value">Python · PyTorch · GNPy · LSTM · NumPy · Matplotlib</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-eyebrow">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Aug 2025<br>Present</div>
+        <div class="exp-org">SJSU<br>Interconnect Lab</div>
+      </div>
+      <div class="exp-body">
+        <h3 class="exp-role">Graduate Researcher</h3>
+        <ul class="exp-bullets">
+          <li>Designed and trained LSTM models for temporal soft failure detection in optical fiber networks — 92% classification accuracy, enabling maintenance before service degradation occurs</li>
+          <li>Modeled stochastic ASE noise with Weibull distributions using GNPy to generate realistic gradual signal degradation scenarios for training data</li>
+          <li>Implemented failing amplifier localization via path intersection analysis across optical monitoring paths</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Jul 2023<br>Jun 2024</div>
+        <div class="exp-org">Radisys<br>Corporation</div>
+      </div>
+      <div class="exp-body">
+        <h3 class="exp-role">Software Engineer</h3>
+        <ul class="exp-bullets">
+          <li>Led migration of a Fiber-to-the-Home (FTTH) platform to cloud-native microservices architecture, improving horizontal scalability by 78%</li>
+          <li>Built and maintained Grafana dashboards monitoring 50+ microservices for real-time node health and performance metrics, sustaining 99.95% system uptime</li>
+          <li>Developed Python and Robot Framework automated test suites integrated into CI/CD pipelines, reducing manual QA effort by 60% and accelerating release cycles</li>
+          <li>Resolved 300+ distributed system bug tickets, reducing defect rate by 45% and improving codebase reliability</li>
+          <li>Deployed Prometheus + Grafana observability stack with alerting, reducing Mean Time to Detect (MTTD) across the fleet</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Sep 2022<br>Jun 2023</div>
+        <div class="exp-org">Veritas<br>Technologies</div>
+      </div>
+      <div class="exp-body">
+        <h3 class="exp-role">Project Intern</h3>
+        <ul class="exp-bullets">
+          <li>Engineered a Linux kernel-level security solution using Berkeley Packet Filters (BPF) and Kprobes for fine-grained, structured access control with low system overhead</li>
+          <li>Built a pluggable security module using a zero-downtime deployment strategy, achieving 99.99% availability during security policy updates</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-eyebrow">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-col">
+      <p class="skill-col-title">LLM & Inference</p>
+      <div class="skill-list">
+        <span class="skill-item">vLLM</span>
+        <span class="skill-item">GPTQ · AWQ quantization</span>
+        <span class="skill-item">Speculative Decoding</span>
+        <span class="skill-item">KV Caching</span>
+        <span class="skill-item">GPU Memory Profiling</span>
+        <span class="skill-item">LangChain · LangGraph</span>
+        <span class="skill-item">HuggingFace Transformers</span>
+      </div>
+    </div>
+    <div class="skill-col">
+      <p class="skill-col-title">ML & Deep Learning</p>
+      <div class="skill-list">
+        <span class="skill-item">PyTorch · TensorFlow</span>
+        <span class="skill-item">Scikit-learn</span>
+        <span class="skill-item">LSTM · Temporal Models</span>
+        <span class="skill-item">Pandas · NumPy</span>
+        <span class="skill-item">Matplotlib · Seaborn</span>
+        <span class="skill-item">GNPy (optical simulation)</span>
+      </div>
+    </div>
+    <div class="skill-col">
+      <p class="skill-col-title">Systems & Infrastructure</p>
+      <div class="skill-list">
+        <span class="skill-item">Python · Java · C++</span>
+        <span class="skill-item">FastAPI · REST APIs</span>
+        <span class="skill-item">Docker · Kubernetes</span>
+        <span class="skill-item">AWS · CI/CD · Jenkins</span>
+        <span class="skill-item">Prometheus · Grafana</span>
+        <span class="skill-item">MySQL · PostgreSQL · MongoDB</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-section" id="contact">
+  <div class="contact-row">
+    <h2 class="contact-heading">Let's work<br><em>together.</em></h2>
+    <div>
+      <p class="contact-sub">Looking for ML/AI engineering roles focused on LLM systems, inference optimization, and production AI. Open to research collaborations and conversations about what I'm building.</p>
+      <div class="contact-links">
+        <a href="mailto:gargi.kulkarni@sjsu.edu" class="contact-link">
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-val">gargi.kulkarni@sjsu.edu</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://github.com/aspiringengineer9" target="_blank" class="contact-link">
+          <span class="contact-link-label">GitHub</span>
+          <span class="contact-link-val">aspiringengineer9</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://linkedin.com/in/gargi-kulkarni" target="_blank" class="contact-link">
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-val">gargi-kulkarni</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Gargi Kulkarni</span>
+  <span>MS Computer Science · SJSU · San Jose, CA</span>
+</footer>
+
+</body>
+</html>
