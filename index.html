@@ -132,31 +132,11 @@ footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--i
   <div class="hero-left">
     <p class="hero-label">ML · LLM · Systems — San Jose, CA</p>
     <h1 class="hero-name">Gargi<br><em>Kulkarni</em></h1>
-    <p class="hero-bio">I build production-grade AI systems — from LLM inference optimization and multi-agent orchestration to deep learning for optical network failure detection. Currently an MS Computer Science student at SJSU and graduate researcher at the Interconnect Lab.</p>
+    <p class="hero-bio">I build production-grade AI systems : from LLM inference optimization and multi-agent orchestration to deep learning for optical network failure detection. Currently an MS Computer Science student at SJSU and graduate researcher at the Interconnect Lab.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn-main">View Work</a>
       <a href="https://github.com/aspiringengineer9" target="_blank" class="btn-text">GitHub ↗</a>
       <a href="mailto:gargi.kulkarni@sjsu.edu" class="btn-text">Email ↗</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-stats">
-      <div class="stat-row">
-        <div class="stat-figure">2.5×</div>
-        <div class="stat-desc">vLLM throughput at 16 concurrent users</div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-figure">3×</div>
-        <div class="stat-desc">memory reduction via INT4 quantization</div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-figure">92%</div>
-        <div class="stat-desc">LSTM accuracy on soft failure detection</div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-figure">87%</div>
-        <div class="stat-desc">conflict-free resolution in multi-agent planning</div>
-      </div>
     </div>
   </div>
 </div>
@@ -184,7 +164,7 @@ footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--i
         <p class="project-desc">
           A full inference optimization pipeline taking Qwen3-4B from a standard HuggingFace model to a production-ready, quantized, high-throughput serving setup. The pipeline applies both GPTQ and AWQ quantization to INT4 precision, then serves the model via vLLM with speculative decoding using a Qwen3-0.6B draft model as the predictor.
           <br><br>
-          The speculative decoding setup achieves a 1.7× decoding speedup by generating candidate token sequences with the smaller draft model, then verifying them in parallel with the target model — recovering most of the compute cost. End-to-end benchmarks cover p99 latency (under 560ms at 16 concurrent users), throughput scaling, and quality degradation — with a direct AWQ vs. GPTQ comparison across all three axes.
+          The speculative decoding setup achieves a 1.7× decoding speedup by generating candidate token sequences with the smaller draft model, then verifying them in parallel with the target model, recovering most of the compute cost. End-to-end benchmarks cover p99 latency (under 560ms at 16 concurrent users), throughput scaling, and quality degradation, with a direct AWQ vs. GPTQ comparison across all three axes.
         </p>
         <div class="project-stack">
           <span class="stack-tag">vLLM</span>
@@ -268,11 +248,11 @@ footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--i
       <div class="research-status"><span class="status-dot"></span>Active · SJSU Interconnect Lab</div>
       <h3 class="research-title">ASE Soft Failure Detection in Optical Networks via LSTM</h3>
       <p class="research-body">
-        Optical network soft failures — gradual OSNR degradations of 1–3 dB — are difficult to catch before they cause service degradation. Standard monitoring thresholds miss them because the signal still looks acceptable. The goal is to detect failure onset early, not just the final degraded state.
+        Optical network soft failures : gradual OSNR degradations observed in optical networks as an effect of soft failures, are difficult to catch before they cause service degradation. Standard monitoring thresholds miss them because the signal still looks acceptable. The goal is to detect failure onset early, not just the final degraded state.
         <br><br>
-        I use GNPy to simulate the failure: one amplifier out of 16 is selected at random and degraded over 25 rounds, with Noise Figure drifting via a Weibull distribution and Gain via a Gaussian — both progressively shifted rightward across rounds to mimic realistic worsening. Healthy amplifiers receive baseline noise additions so the problem doesn't become trivially easy by OSNR magnitude alone.
+        I use GNPy to simulate the failure: one amplifier out of 16 is selected at random and degraded over 25 rounds, with Noise Figure drifting via a Weibull distribution and Gain via a Gaussian : both progressively shifted rightward across rounds to mimic realistic worsening. Healthy amplifiers receive baseline noise additions so the problem doesn't become trivially easy by OSNR magnitude alone.
         <br><br>
-        An LSTM trained on this temporal sequence learns to detect degraded paths and localize the failing amplifier via path intersection analysis across monitoring paths. Current results show 92% classification accuracy at ~5,000 simulation rounds. Ongoing work focuses on improving precision (currently 53%) and recall (74%), and verifying that the model is genuinely learning temporal degradation trends rather than static signal thresholds.
+        An LSTM trained on this temporal sequence learns to detect degraded paths and localize the failing amplifier via path intersection analysis across monitoring paths. Current results show 94.1% classification accuracy at ~5,000 simulation rounds. Localization accuracy recorded is 93.3 % for Top-3 candidate amplifiers and 81 % for Top-1.
       </p>
     </div>
     <div class="research-details">
@@ -282,7 +262,7 @@ footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--i
       </div>
       <div class="rd-row">
         <div class="rd-label">Current metrics</div>
-        <div class="rd-value">92% classification accuracy · 53% precision · 74% recall on degraded path detection</div>
+        <div class="rd-value">94.1% classification accuracy · 92.4% precision · 93.5% recall on degraded path detection</div>
       </div>
       <div class="rd-row">
         <div class="rd-label">Simulation setup</div>
@@ -320,7 +300,7 @@ footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--i
       <div class="exp-body">
         <h3 class="exp-role">Graduate Researcher</h3>
         <ul class="exp-bullets">
-          <li>Designed and trained LSTM models for temporal soft failure detection in optical fiber networks — 92% classification accuracy, enabling maintenance before service degradation occurs</li>
+          <li>Designed and trained LSTM models for temporal soft failure detection in optical fiber networks — 94.1% classification accuracy, enabling maintenance before service degradation occurs</li>
           <li>Modeled stochastic ASE noise with Weibull distributions using GNPy to generate realistic gradual signal degradation scenarios for training data</li>
           <li>Implemented failing amplifier localization via path intersection analysis across optical monitoring paths</li>
         </ul>
