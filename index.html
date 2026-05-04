@@ -192,9 +192,9 @@ footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--i
       <div class="project-body">
         <h3 class="project-title">Multi-Agent LLM System for Collaborative Itinerary Planning</h3>
         <p class="project-desc">
-          A LangGraph-based multi-agent system where 3–5 specialized agents autonomously negotiate conflicting travel constraints — budget vs. preferred airlines, layover tolerances, hotel tier — and produce conflict-free itineraries without human intervention in 87% of test cases.
+          A LangGraph-based multi-agent system where 3–5 specialized agents autonomously negotiate conflicting travel constraints : budget vs. preferred airlines, layover tolerances, hotel tier, and produce conflict-free itineraries without human intervention in 87% of test cases.
           <br><br>
-          The core is a ReAct-based orchestrator agent with live integrations to flight and hotel search APIs. Autonomous error handling — retry logic, API fallbacks, and constraint relaxation — improved search success rate by 25% and eliminated the need for manual intervention when APIs return partial or inconsistent results. A Streamlit frontend with human-in-the-loop checkpoints allows users to inspect and override agent decisions at any point in the planning process.
+          The core is a ReAct-based orchestrator agent with live integrations to flight and hotel search APIs. Autonomous error handling — retry logic, API fallbacks, and constraint relaxation : improved search success rate by 25% and eliminated the need for manual intervention when APIs return partial or inconsistent results. A Streamlit frontend with human-in-the-loop checkpoints allows users to inspect and override agent decisions at any point in the planning process.
         </p>
         <div class="project-stack">
           <span class="stack-tag">LangGraph</span>
@@ -218,18 +218,33 @@ footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--i
       </div>
       <div class="project-body">
         <h3 class="project-title">Reinforcement Learning — CS272 Final Project</h3>
-        <p class="project-desc">
-          A research project exploring core reinforcement learning methods and policy optimization in structured environments. The work covers algorithm implementation from scratch, agent evaluation under varying reward structures, and empirical analysis of learning dynamics — including convergence behavior and sensitivity to hyperparameter choices across different environment configurations.
-          <br><br>
-          Collaborative research with an emphasis on experimental rigor: reproducible training setups, ablation studies across key variables, and systematic comparison of RL approaches to understand where and why each method performs differently.
-        </p>
-        <div class="project-stack">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">PyTorch</span>
-          <span class="stack-tag">RL Algorithms</span>
-          <span class="stack-tag">NumPy</span>
-          <span class="stack-tag">Matplotlib</span>
-        </div>
+          <p class="project-desc">
+            Designed and trained deep RL agents across four autonomous driving environments: 
+            Highway, Merge, Intersection, and Parallel Parking using the highway-env simulation 
+            framework, plus a custom-built Emergency Vehicle environment developed from scratch to 
+            model real-world priority vehicle scenarios with dynamic traffic.
+            <br><br>
+            Implemented and compared DQN and PPO agents across observation modalities, including 
+            LiDAR-based sensing and grayscale image inputs, evaluating how observation representation 
+            impacts policy learning, sample efficiency, and generalization. Conducted ablation studies 
+            across reward shaping strategies, discount factors, and network architectures to isolate 
+            the contribution of each design choice to agent performance.
+            <br><br>
+            Culminated in a Unified Agent capable of transferring across multiple environment 
+            configurations, demonstrating cross-environment generalization. Collaborative research 
+            with full reproducibility: fixed seeds, structured experiment tracking, and systematic 
+            comparison of convergence behavior and stability across all environments.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">PyTorch</span>
+            <span class="stack-tag">DQN / PPO</span>
+            <span class="stack-tag">highway-env</span>
+            <span class="stack-tag">LiDAR Observations</span>
+            <span class="stack-tag">Grayscale CNN</span>
+            <span class="stack-tag">NumPy</span>
+            <span class="stack-tag">Matplotlib</span>
+          </div>
         <a href="https://github.com/Hemalakshumi/CS272_Final_project" target="_blank" class="project-link">View on GitHub ↗</a>
       </div>
     </div>
