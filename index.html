@@ -151,7 +151,7 @@ footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--i
         </div>
       </div>
       <div class="project-body">
-        <h3 class="project-title">End-to-End LLM Quantization & Serving Pipeline — Qwen3-4B</h3>
+        <h3 class="project-title">End-to-End LLM Quantization & Serving Pipeline - Qwen3-4B</h3>
         <p class="project-desc">A full inference optimization pipeline taking Qwen3-4B from a standard HuggingFace model to a production-ready, quantized, high-throughput serving setup. The pipeline applies both GPTQ and AWQ quantization to INT4 precision, then serves the model via vLLM with speculative decoding using a Qwen3-0.6B draft model as the predictor.<br><br>The speculative decoding setup achieves a 1.7× decoding speedup by generating candidate token sequences with the smaller draft model, then verifying them in parallel with the target model, recovering most of the compute cost. End-to-end benchmarks cover p99 latency (under 560ms at 16 concurrent users), throughput scaling, and quality degradation, with a direct AWQ vs. GPTQ comparison across all three axes.</p>
         <div class="project-stack"><span class="stack-tag">vLLM</span><span class="stack-tag">GPTQ</span><span class="stack-tag">AWQ</span><span class="stack-tag">Speculative Decoding</span><span class="stack-tag">KV Caching</span><span class="stack-tag">Qwen3-4B</span><span class="stack-tag">GPU Profiling</span><span class="stack-tag">Python</span></div>
         <a href="https://colab.research.google.com/drive/17Bj-5Gl8fn0KWgWT_6xgo_uzMD_2cBCP" target="_blank" class="project-link">Open Colab Notebook ↗</a>
@@ -183,8 +183,11 @@ footer span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--i
         </div>
       </div>
       <div class="project-body">
-        <h3 class="project-title">Reinforcement Learning — CS272 Final Project</h3>
-        <p class="project-desc">Designed and trained deep RL agents across four autonomous driving environments: Highway, Merge, Intersection, and Parallel Parking using the highway-env simulation framework, plus a custom-built Emergency Vehicle environment developed from scratch to model real-world priority vehicle scenarios with dynamic traffic.<br><br>Implemented and compared DQN and PPO agents across observation modalities, including LiDAR-based sensing and grayscale image inputs, evaluating how observation representation impacts policy learning, sample efficiency, and generalization. Conducted ablation studies across reward shaping strategies, discount factors, and network architectures to isolate the contribution of each design choice to agent performance.<br><br>Culminated in a Unified Agent capable of transferring across multiple environment configurations, demonstrating cross-environment generalization.</p>
+        <h3 class="project-title">Autonomous Emergency Vehicle Navigation via Custom RL Environment</h3>
+        <p class="project-desc"> Engineered a custom OpenAI Gym-compatible highway environment simulating emergency vehicle scenarios (ambulance,
+fire truck, police), integrating proximity-aware urgency, relative speed, and lane-position based reward shaping.<br><br>Trained a PPO-based reinforcement learning agent over 60K timesteps, achieving consistent policy improvement with
+measurable gains in episodic return across training checkpoints (25K to 50K steps).<br><br> Formulated structured traffic dynamics using adaptive speed control, lane-constrained spawning, and grayscale state
+representations, enabling stable learning of emergency yielding behavior across 500 evaluation episodes.</p>
         <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">PyTorch</span><span class="stack-tag">DQN / PPO</span><span class="stack-tag">highway-env</span><span class="stack-tag">LiDAR Observations</span><span class="stack-tag">Grayscale CNN</span><span class="stack-tag">NumPy</span><span class="stack-tag">Matplotlib</span></div>
         <a href="https://github.com/Hemalakshumi/CS272_Final_project" target="_blank" class="project-link">View on GitHub ↗</a>
       </div>
